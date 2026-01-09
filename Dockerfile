@@ -1,9 +1,6 @@
-FROM node:20-alpine
+FROM alpine:3.20
+
 WORKDIR /app
+COPY README.md /app/README.md
 
-COPY package*.json ./
-RUN npm ci
-
-COPY . .
-EXPOSE 3000
-CMD ["npm","start"]
+CMD ["sh", "-c", "echo '--- README.md ---' && cat /app/README.md"]
